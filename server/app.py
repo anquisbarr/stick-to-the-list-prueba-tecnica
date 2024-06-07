@@ -37,5 +37,17 @@ def get_token():
     except Exception as err:
         print(f"Other error occurred: {err}")
     return None
+
+@app.route('/search', methods=['POST'])
+def search():
+    keyword = request.form['keyword']
+    token = get_token()
+    if not token:
+        return jsonify({'error': 'Failed to retrieve access token'}), 500
+    headers = {'Authorization': f'Bearer {token}', 'Content-Type': 'application/x-www-form-urlencoded'}
+    params = {'filter.term': keyword, "filter.limit": 10}
+    response = requests.get(PRODUCT_API_URL, headers=headers, params=params)
+    return jsonify(response.json())
+
 if __name__ == '__main__':
     app.run(debug=True)
