@@ -13,7 +13,6 @@ CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}})
 CLIENT_ID = os.getenv('CLIENT_ID')
 CLIENT_SECRET = os.getenv('CLIENT_SECRET')
 API_BASE_URL = 'https://api-ce.kroger.com/v1'
-REDIRECT_URL= 'http://localhost:3000/callback'
 TOKEN_URL = 'https://api-ce.kroger.com/v1/connect/oauth2/token'
 PRODUCT_API_URL = 'https://api-ce.kroger.com/v1/products'
 
@@ -52,4 +51,4 @@ def search():
     return jsonify(response.json())
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=8000)
