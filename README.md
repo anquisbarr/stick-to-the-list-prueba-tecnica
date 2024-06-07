@@ -19,8 +19,7 @@ cd stick-to-the-list-prueba-tecnica
 ```
 
 ### 2. Configurar Variables de Entorno
-Backend (Flask)
-Copia el archivo .env.example a .env y rellena los valores necesarios:
+Copia el archivo `.env.example` a `.env` y rellena los valores necesarios:
 
 ```sh
 cp server/.env.example server/.env
@@ -55,7 +54,7 @@ Abre Postman y crea una nueva solicitud.
 Selecciona el método POST.
 Ingresa `http://localhost:8000/search` como la URL.
 En la pestaña Headers, añade `Content-Type` con el valor `application/x-www-form-urlencoded`.
-En la pestaña Body, selecciona form-data y añade un campo llamado keyword con el valor `milk`.
+En la pestaña Body, selecciona form-data y añade un campo llamado `keyword` con el valor `milk`.
 
 ```form-data
 "keyword": "milk"
